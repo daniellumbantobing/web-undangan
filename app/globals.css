@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fdfaf6; /* Very subtle warm off-white, elegant for weddings */
+  --foreground: #1c1917; /* Dark stone */
+  --accent: #9d8f8f; /* Muted rose/taupe */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1c1917;
+    --foreground: #fdfaf6;
+    --accent: #bdae1;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans), sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gold-double-border {
+    border: 1px solid rgba(197, 168, 128, 0.45);
+    position: relative;
+  }
+  .gold-double-border::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .paper-texture {
+    background-color: #fbf9f5;
+    background-image: radial-gradient(rgba(197, 168, 128, 0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .paper-card-shadow {
+    box-shadow: 0 1px 3px rgba(36, 62, 54, 0.04), 0 16px 36px -12px rgba(197, 168, 128, 0.2);
+  }
+}
+

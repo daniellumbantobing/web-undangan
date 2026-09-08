@@ -1,0 +1,96 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "on-secondary-fixed-variant": "#584323",
+        "on-error": "#ffffff",
+        "secondary-fixed": "#fedeb2",
+        "on-primary": "#ffffff",
+        "background": "#fbf9f5",
+        "outline": "#727975",
+        "tertiary-fixed-dim": "#f0bab4",
+        "on-tertiary-fixed": "#301310",
+        "primary-fixed-dim": "#b0cdc2",
+        "secondary-container": "#fedeb2",
+        "inverse-primary": "#b0cdc2",
+        "on-primary-fixed-variant": "#324c43",
+        "surface-dim": "#dbdad6",
+        "on-surface": "#1b1c1a",
+        "tertiary-container": "#532f2c",
+        "secondary": "#725b38",
+        "tertiary": "#3a1a18",
+        "on-tertiary-container": "#c99691",
+        "surface-variant": "#e4e2de",
+        "on-tertiary": "#ffffff",
+        "on-secondary-container": "#78603e",
+        "surface": "#fbf9f5",
+        "outline-variant": "#c1c8c4",
+        "on-surface-variant": "#424845",
+        "on-primary-fixed": "#052019",
+        "on-primary-container": "#8ca99e",
+        "on-error-container": "#93000a",
+        "inverse-on-surface": "#f2f0ed",
+        "error": "#ba1a1a",
+        "primary": "#0d2821",
+        "surface-container": "#efeeea",
+        "on-secondary-fixed": "#281800",
+        "surface-container-low": "#f5f3ef",
+        "on-background": "#1b1c1a",
+        "surface-container-highest": "#e4e2de",
+        "secondary-fixed-dim": "#e0c298",
+        "inverse-surface": "#30312e",
+        "surface-tint": "#49645b",
+        "primary-fixed": "#cbe9dd",
+        "surface-bright": "#fbf9f5",
+        "primary-container": "#243e36",
+        "on-secondary": "#ffffff",
+        "on-tertiary-fixed-variant": "#633d39",
+        "error-container": "#ffdad6",
+        "surface-container-lowest": "#ffffff",
+        "tertiary-fixed": "#ffdad6",
+        "surface-container-high": "#eae8e4",
+        // Fallback backward compatibility
+        "kinpaku": {
+          DEFAULT: "oklch(84% 0.19 80.46)",
+          hover: "oklch(74% 0.18 80)",
+        }
+      },
+      fontFamily: {
+        "headline-sm": ["var(--font-serif)"],
+        "subheading-editorial": ["var(--font-serif)"],
+        "display-hero": ["var(--font-serif)"],
+        "label-caps": ["var(--font-sans)"],
+        "body-lg": ["var(--font-sans)"],
+        "headline-md": ["var(--font-serif)"],
+        "body-sm": ["var(--font-sans)"],
+        "display-hero-mobile": ["var(--font-serif)"],
+        "label-button": ["var(--font-sans)"],
+        "headline-lg": ["var(--font-serif)"],
+        "headline-lg-mobile": ["var(--font-serif)"],
+        "body-md": ["var(--font-sans)"]
+      },
+      fontSize: {
+        "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+        "subheading-editorial": ["18px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "400" }],
+        "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.18em", "fontWeight": "600" }],
+        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+        "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+        "display-hero-mobile": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+        "label-button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+        "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "0em", "fontWeight": "500" }],
+        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0em", "fontWeight": "500" }],
+        "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+      }
+    },
+  },
+  plugins: [],
+};
+export default config;
+
