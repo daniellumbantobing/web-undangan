@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import LoveStory from "./components/LoveStory";
 import RSVP from "./components/RSVP";
 import Guestbook from "./components/Guestbook";
-import Decorations from "./components/Decorations";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -103,8 +102,7 @@ export default function Home() {
 
   return (
     <div className="max-w-md mx-auto bg-surface min-h-screen relative shadow-2xl overflow-x-hidden">
-      <Decorations />
-
+      
       {/* Audio Element - Canon in D Wedding Theme */}
       <audio 
         ref={audioRef} 
@@ -123,7 +121,16 @@ export default function Home() {
         <motion.section className={`min-h-[100vh] flex flex-col justify-center items-center text-center relative py-12 px-6 ${isUnlocked ? 'mb-10' : ''}`} id="cover">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary-fixed/30 rounded-full blur-2xl"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary-fixed/20 rounded-full blur-2xl"></div>
+
+          {/* Cover Flowers */}
+          <motion.img src="/decorations/bunga-cover-kiri.png" alt="" initial={{ opacity: 0, x: -30, y: -30 }} whileInView={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute top-0 left-0 w-32 md:w-48 opacity-50 pointer-events-none" />
+          <motion.img src="/decorations/bunga-cover-kanan.png" alt="" initial={{ opacity: 0, x: 30, y: -30 }} whileInView={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 1.5, delay: 0.2 }} viewport={{ once: false }} className="absolute top-0 right-0 w-32 md:w-48 opacity-50 pointer-events-none" />
+          {/* Cover Clouds */}
+          <motion.img src="/decorations/awan-1-min.png" alt="" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 0.7, x: [0, 15, 0] }} transition={{ opacity: {duration: 2}, x: {repeat: Infinity, duration: 8} }} className="absolute bottom-0 left-[-10%] w-64 opacity-70 pointer-events-none mix-blend-overlay" />
+          <motion.img src="/decorations/awan-2.png" alt="" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 0.5, x: [0, -15, 0] }} transition={{ opacity: {duration: 2, delay: 0.5}, x: {repeat: Infinity, duration: 10} }} className="absolute bottom-10 right-[-15%] w-72 opacity-60 pointer-events-none mix-blend-overlay" />
+
           
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: false }} className="flex flex-col items-center relative z-10">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-secondary/40 bg-surface-container-low text-secondary font-headline-md text-headline-md mb-6 shadow-sm z-10">
             R &amp; D
           </div>
@@ -134,6 +141,7 @@ export default function Home() {
           <p className="font-subheading-editorial text-subheading-editorial text-on-surface-variant italic mb-6 z-10">
             Minggu, 20 Desember 2026 • Jakarta Selatan
           </p>
+          </motion.div>
           
           <div className="bg-surface-container-low/90 border border-outline-variant/50 px-6 py-4 rounded-xl w-full my-6 text-center shadow-sm z-10">
             <p className="text-label-caps font-label-caps text-on-surface-variant mb-1">KEPADA YTH. BAPAK/IBU/SAUDARA/I:</p>
@@ -160,25 +168,29 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center py-8 px-6 bg-surface-container-low/50 rounded-xl border border-secondary/20 shadow-sm">
               <span className="material-symbols-outlined text-secondary text-3xl mb-2" data-icon="format_quote">format_quote</span>
               <p className="font-headline-sm text-headline-sm text-primary italic leading-relaxed mb-4">
                 "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
               </p>
-              <p className="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-semibold">
+              <p className="font-label-caps font-label-caps text-secondary uppercase tracking-widest font-semibold">
                 — Matius 19:6 —
               </p>
             </motion.section>
 
             {/* MEMPELAI */}
             <motion.section
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="pt-4 scroll-mt-6" id="mempelai">
-              <div className="text-center mb-8">
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-50px" }}
+              className="pt-4 scroll-mt-6 relative overflow-hidden" id="mempelai">
+
+              {/* Mempelai Decorations */}
+              <motion.img src="/decorations/bunga-cover-kiri.png" alt="" initial={{ opacity: 0, x: -30, y: -30 }} whileInView={{ opacity: 0.3, x: 0, y: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute top-0 left-0 w-24 md:w-32 opacity-30 pointer-events-none" />
+              <motion.img src="/decorations/bunga-cover-kanan.png" alt="" initial={{ opacity: 0, x: 30, y: -30 }} whileInView={{ opacity: 0.3, x: 0, y: 0 }} transition={{ duration: 1.5, delay: 0.2 }} viewport={{ once: false }} className="absolute top-0 right-0 w-24 md:w-32 opacity-30 pointer-events-none" />
+<div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Groom &amp; Bride</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
                   Mempelai yang Berbahagia
@@ -204,18 +216,22 @@ export default function Home() {
             </motion.section>
 
             {/* Kisah Perjumpaan */}
-            <div className="-mx-4 sm:-mx-6">
+            <div className="-mx-4 sm:-mx-6 relative overflow-hidden">
+
+              
               <LoveStory />
             </div>
 
             {/* ACARA & LOKASI */}
             <motion.section
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="pt-4 scroll-mt-6" id="acara">
-              <div className="text-center mb-8">
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-50px" }}
+              className="pt-4 scroll-mt-6 relative overflow-hidden" id="acara">
+
+              <motion.img src="/decorations/bunga-cover-kiri.png" alt="" initial={{ opacity: 0, x: -30, y: -30 }} whileInView={{ opacity: 0.3, x: 0, y: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute top-0 left-0 w-24 opacity-30 pointer-events-none" />
+<div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Agenda &amp; Lokasi</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
                   Rangkaian Acara
@@ -312,11 +328,17 @@ export default function Home() {
 
             {/* GALERI */}
             <motion.section
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="pt-4 scroll-mt-6" id="galeri">
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: false, margin: "-50px" }}
+                className="pt-4 scroll-mt-6 relative pb-8 overflow-hidden" id="galeri">
+
+              <motion.img src="/decorations/bunga-cover-kiri.png" alt="" initial={{ opacity: 0, x: -30, y: -30 }} whileInView={{ opacity: 0.3, x: 0, y: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute top-0 left-0 w-24 md:w-32 opacity-30 pointer-events-none origin-top-left scale-x-[-1]" />
+              {/* Galeri Branches */}
+              <motion.img src="/decorations/orn-galeri-kanan.png" alt="" initial={{ opacity: 0, x: -30, y: 30 }} whileInView={{ opacity: 0.4, x: 0, y: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute bottom-0 left-0 w-32 opacity-40 pointer-events-none origin-bottom-left -scale-x-100" />
+              <motion.img src="/decorations/orn-galeri-kanan.png" alt="" initial={{ opacity: 0, x: 30, y: 30 }} whileInView={{ opacity: 0.4, x: 0, y: 0 }} transition={{ duration: 1.5, delay: 0.3 }} viewport={{ once: false }} className="absolute bottom-0 right-0 w-32 opacity-40 pointer-events-none origin-bottom-right" />
+
               <div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Dokumentasi</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
@@ -341,12 +363,7 @@ export default function Home() {
             </motion.section>
 
             {/* RSVP */}
-            <motion.section
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="pt-4 scroll-mt-6" id="rsvp">
+            <section className="pt-4 scroll-mt-6" id="rsvp">
               <div className="bg-surface-container-lowest p-5 rounded-xl gold-double-border paper-card-shadow">
                 <div className="text-center mb-6">
                   <h2 className="font-headline-lg text-headline-lg-mobile text-primary">
@@ -363,17 +380,17 @@ export default function Home() {
                     </h3>
                   </div>
                   <Guestbook refreshTrigger={guestbookRefresh} />
+                  </div>
                 </div>
-              </div>
-            </motion.section>
+              </section>
 
             {/* KADO */}
             <motion.section
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="pt-4 scroll-mt-6" id="kado">
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                viewport={{ once: false, margin: "-50px" }}
+                className="pt-4 scroll-mt-6" id="kado">
               <div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Tanda Kasih</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">

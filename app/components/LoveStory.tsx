@@ -4,13 +4,19 @@ import { motion } from "motion/react";
 
 export default function LoveStory() {
   return (
-    <section className="py-24 px-6 bg-surface-container-lowest">
+    <section className="py-24 px-6 bg-surface-container-lowest relative overflow-hidden">
+
+      {/* Kisah Cinta Decorations */}
+      <motion.img src="/decorations/bunga-cover-kanan.png" alt="" initial={{ opacity: 0, x: 30, y: -30 }} whileInView={{ opacity: 0.3, x: 0, y: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute top-10 right-0 w-24 md:w-32 opacity-30 pointer-events-none z-0" />
+      <motion.img src="/decorations/awan-1-min.png" alt="" initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 0.6, x: 0 }} transition={{ duration: 1.5 }} viewport={{ once: false }} className="absolute top-1/3 left-[-10%] w-48 opacity-60 pointer-events-none z-0" />
+      <motion.img src="/decorations/awan-2.png" alt="" initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 0.6, x: 0 }} transition={{ duration: 1.5, delay: 0.3 }} viewport={{ once: false }} className="absolute bottom-20 right-[-10%] w-48 opacity-60 pointer-events-none z-0" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8 }}
-        className="max-w-md mx-auto text-center"
+        className="max-w-md mx-auto text-center relative z-10"
       >
         <div className="flex justify-center mb-6 text-secondary">
           <span className="material-symbols-outlined text-4xl" data-icon="favorite">favorite</span>
