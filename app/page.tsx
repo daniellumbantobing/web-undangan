@@ -1,9 +1,11 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import LoveStory from "./components/LoveStory";
 import RSVP from "./components/RSVP";
 import Guestbook from "./components/Guestbook";
+import Decorations from "./components/Decorations";
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -101,6 +103,8 @@ export default function Home() {
 
   return (
     <div className="max-w-md mx-auto bg-surface min-h-screen relative shadow-2xl overflow-x-hidden">
+      <Decorations />
+
       {/* Audio Element - Canon in D Wedding Theme */}
       <audio 
         ref={audioRef} 
@@ -116,7 +120,7 @@ export default function Home() {
 
       <main className={`relative ${!isUnlocked ? 'h-screen overflow-hidden' : ''}`}>
         {/* COVER SECTION */}
-        <section className={`min-h-[100vh] flex flex-col justify-center items-center text-center relative py-12 px-6 ${isUnlocked ? 'mb-10' : ''}`} id="cover">
+        <motion.section className={`min-h-[100vh] flex flex-col justify-center items-center text-center relative py-12 px-6 ${isUnlocked ? 'mb-10' : ''}`} id="cover">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary-fixed/30 rounded-full blur-2xl"></div>
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary-fixed/20 rounded-full blur-2xl"></div>
           
@@ -147,12 +151,17 @@ export default function Home() {
               <span>Buka Undangan</span>
             </button>
           )}
-        </section>
+        </motion.section>
 
         {isUnlocked && (
           <div className="space-y-12 pb-24 px-4 sm:px-6" id="invitation-body">
             {/* AYAT */}
-            <section className="text-center py-8 px-6 bg-surface-container-low/50 rounded-xl border border-secondary/20 shadow-sm">
+            <motion.section
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-center py-8 px-6 bg-surface-container-low/50 rounded-xl border border-secondary/20 shadow-sm">
               <span className="material-symbols-outlined text-secondary text-3xl mb-2" data-icon="format_quote">format_quote</span>
               <p className="font-headline-sm text-headline-sm text-primary italic leading-relaxed mb-4">
                 "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
@@ -160,10 +169,15 @@ export default function Home() {
               <p className="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-semibold">
                 — Matius 19:6 —
               </p>
-            </section>
+            </motion.section>
 
             {/* MEMPELAI */}
-            <section className="pt-4 scroll-mt-6" id="mempelai">
+            <motion.section
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="pt-4 scroll-mt-6" id="mempelai">
               <div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Groom &amp; Bride</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
@@ -187,7 +201,7 @@ export default function Home() {
                   <p className="font-label-caps text-label-caps text-secondary mt-1 uppercase tracking-wider">Mempelai Wanita</p>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* Kisah Perjumpaan */}
             <div className="-mx-4 sm:-mx-6">
@@ -195,7 +209,12 @@ export default function Home() {
             </div>
 
             {/* ACARA & LOKASI */}
-            <section className="pt-4 scroll-mt-6" id="acara">
+            <motion.section
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="pt-4 scroll-mt-6" id="acara">
               <div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Agenda &amp; Lokasi</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
@@ -289,10 +308,15 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* GALERI */}
-            <section className="pt-4 scroll-mt-6" id="galeri">
+            <motion.section
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="pt-4 scroll-mt-6" id="galeri">
               <div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Dokumentasi</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
@@ -314,10 +338,15 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* RSVP */}
-            <section className="pt-4 scroll-mt-6" id="rsvp">
+            <motion.section
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="pt-4 scroll-mt-6" id="rsvp">
               <div className="bg-surface-container-lowest p-5 rounded-xl gold-double-border paper-card-shadow">
                 <div className="text-center mb-6">
                   <h2 className="font-headline-lg text-headline-lg-mobile text-primary">
@@ -336,10 +365,15 @@ export default function Home() {
                   <Guestbook refreshTrigger={guestbookRefresh} />
                 </div>
               </div>
-            </section>
+            </motion.section>
 
             {/* KADO */}
-            <section className="pt-4 scroll-mt-6" id="kado">
+            <motion.section
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="pt-4 scroll-mt-6" id="kado">
               <div className="text-center mb-8">
                 <span className="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Tanda Kasih</span>
                 <h2 className="font-headline-lg text-headline-lg-mobile text-primary mt-1">
@@ -390,7 +424,7 @@ export default function Home() {
                   </button>
                 </div>
               </div>
-            </section>
+            </motion.section>
           </div>
         )}
       </main>
